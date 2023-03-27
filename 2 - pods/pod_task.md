@@ -14,4 +14,6 @@ curl http://localhost:8000/api/v1/dev/pods/pod-nginx/proxy/
 ### 3 - Describe how the containers are working together after applying pod_2.yml
 
 ```
-With the addition of a shared volume, container pod-content is writing 
+The added volume is shared simultaneously by both containers and allowing each access to the html directory.
+Container `pod-content` is writing timestamps to the index.html file at regular intervals.
+Container `nginx` is then consuming and reading that file to display at the root index.
